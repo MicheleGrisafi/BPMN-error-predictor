@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <e4view
+            class="it.unitn.disi.logcompliance.prediction.views.PredictionView"
+            id="it.unitn.disi.logcompliance.prediction.views.PredictionView"
+            name="Prediction"
+            restorable="true">
+      </e4view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               commandId="it.unitn.disi.logcompliance.prediction.commands.startPrediction"
+               label="Predict">
+            <command
+                  commandId="it.unitn.disi.logcompliance.prediction.commands.startPrediction"
+                  id="it.unitn.disi.logcompliance.prediction.menus.startPrediction"
+                  mnemonic="s"
+                  style="push">
+            </command>
+            <command
+                  commandId="it.unitn.disi.logcompliance.prediction.commands.enrichLog"
+                  id="it.unitn.disi.logcompliance.prediction.menus.enrichLog"
+                  mnemonic="e"
+                  style="push">
+            </command>
+            <command
+                  commandId="it.unitn.disi.logcompliance.prediction.commands.trainModels"
+                  id="it.unitn.disi.logcompliance.prediction.menus.trainModels"
+                  mnemonic="t"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="Commands related to prediction"
+            id="it.unitn.disi.logcompliance.prediction.commands.category"
+            name="Prediction">
+      </category>
+      <command
+            categoryId="it.unitn.disi.logcompliance.prediction.commands.category"
+            description="Start the prediction for the log"
+            id="it.unitn.disi.logcompliance.prediction.commands.startPrediction"
+            name="Start prediction">
+      </command>
+      <command
+            categoryId="it.unitn.disi.logcompliance.prediction.commands.category"
+            description="Enrich the log"
+            id="it.unitn.disi.logcompliance.prediction.commands.enrichLog"
+            name="Enrich Log">
+      </command>
+      <command
+            categoryId="it.unitn.disi.logcompliance.prediction.commands.category"
+            id="it.unitn.disi.logcompliance.prediction.commands.trainModels"
+            name="Train Models">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="it.unitn.disi.logcompliance.prediction.handlers.startPredictionHandler"
+            commandId="it.unitn.disi.logcompliance.prediction.commands.startPrediction">
+      </handler>
+      <handler
+            class="it.unitn.disi.logcompliance.prediction.handlers.enrichLogHandler"
+            commandId="it.unitn.disi.logcompliance.prediction.commands.enrichLog">
+      </handler>
+      <handler
+            class="it.unitn.disi.logcompliance.prediction.handlers.TrainModelsHandler"
+            commandId="it.unitn.disi.logcompliance.prediction.commands.trainModels">
+      </handler>
+   </extension>
+
+</plugin>
